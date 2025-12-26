@@ -1,16 +1,20 @@
 import React from 'react'
+import './Card.css'
+import logo from '../Images/im1.jpg'
 
 interface Props {
-    
+    companyName: string;
+    ticker: string;
+    price: number;
 }
 
-const Card = (props: Props) => {
+const Card:React.FC<Props> = ({ companyName, ticker, price }: Props) => {
     return (
         <div className='card'>
-            <img src="" alt="card image" />
+            <img src={logo} alt={`${companyName} logo`} className='card-logo' />
             <div className="card-content">
-                <h3>Card Title</h3>
-                <p>Card description goes here.</p>
+                <h3>{companyName}</h3>
+                <p>{ticker} - ${price.toFixed(2)}</p>
             </div>
         </div>
     )
